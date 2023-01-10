@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+#python-editor-container {
+    background-color: rgb(49, 43, 43);
+    height: 100vh;
+    width: 100%;
+    font-family: 'Roboto Mono', monospace;
+    overflow: hidden;
+}
+
+#python-editor-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+#python-code-editor {
+    background-color: #f9f9f9;
+    overflow: auto;
+}
+
+#run-input-btn {
+    align-self: flex-end;
+    margin: 0.4em 2em 0.4em 0.4em;
+    background-color: #00abae;
+    border-radius: 3px;
+    border:none;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 13px;
+    padding: 0.5em 1.5em;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+}
+
+#ace-editor{
+    width:97% !important;
+    margin: 0 auto;
+    height:60vh !important;
+}
+
+#run-input-btn:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5cbf2a), color-stop(1, #44c767));
+    background: -moz-linear-gradient(top, #5cbf2a 5%, #44c767 100%);
+    background: -webkit-linear-gradient(top, #5cbf2a 5%, #44c767 100%);
+    background: -o-linear-gradient(top, #5cbf2a 5%, #44c767 100%);
+    background: -ms-linear-gradient(top, #5cbf2a 5%, #44c767 100%);
+    background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cbf2a', endColorstr='#44c767', GradientType=0);
+    background-color: #5cbf2a;
+}
+
+#python-editor-output {
+    width: 100%;
+    height: 32vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+}
+#python-btn{
+    display:flex;
+    justify-content: right;
+    /* gap:1em; */
+}
+#reset-btn{
+    align-self: flex-end;
+    margin: 0.4em 2em 0.4em 0.4em;
+    background-color: #00abae;
+    border-radius: 3px;
+    border:none;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 13px;
+    padding: 0.5em 1.5em;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+}
+
+#python-editor-output button {
+    width: 8rem;
+    align-self: flex-end;
+    margin: 0.4em 2em 0.4em 0.4em;
+    border: 0;
+    border-radius: 3PX;
+    background-color: rgb(59, 144, 137);
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 13px;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #854629;
+}
+
+#python-editor-output button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
+    background: -moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: -webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: -o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: -ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b', GradientType=0);
+    background-color: #bc3315;
+}
+
+#python-editor-output textarea {
+    width: 97%;
+    height: 100%;
+    background-color: #050004;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0 auto;
+    border: 1px solid #00abae;
+}
+
+#cancel-input-btn {
+    width: 8rem;
+    align-self: flex-end;
+    margin: 0.4em 2.1em 0.4em 0.4em;
+    background-color: #00abae;
+    border-radius: 3px;
+    border:none;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 13px;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+}
+
+#cancel-input-btn:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
+    background: -moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: -webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: -o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: -ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b', GradientType=0);
+    background-color: #bc3315;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --editor-bg: #eee;
+    --editor-border: #00abae;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.editor {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.editor__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(49, 43, 43);
+    /* padding: 2em; */
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.editor__body {
+    /* flex: 1; */
+    height: 60vh;
+}
+
+.editor__footer {
+    display: flex;
+}
+
+.editor__footer--left {
+    display: flex;
+    justify-content: right;
+}
+
+.editor__footer--right {
+    flex: 1;
+    /* margin-left: 10px; */
+    overflow: hidden;
+}
+
+.editor__btn {
+        align-self: flex-end;
+        margin: 0.4em 2em 0.4em 0.4em;
+        background-color: #00abae;
+        border-radius: 3px;
+        border:none;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 13px;
+        padding: 0.5em 1.5em;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #2f6627;
+        box-sizing: border-box;
+}
+
+.editor__console {
+    background-color: rgb(18, 17, 17);
+    width: 97%;
+    height: 32vh;
+    margin: .9em auto;
+    border: 1px solid #00abae;
+    overflow: auto;
+}
+
+.editor__code {
+    position: relative;
+    height: 100%;
+    width: 97%;
+    margin:0 auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 1px solid var(--editor-border);
+}
+
+
+.editor__console-logs {
+    padding: 10px;
+    list-style: none;
+}
+
+.editor__console-logs li pre {
+    font-size: .9em;
+    font-family: Inconsolata, sans-serif;
+}
+
+.ace_gutter {
+    border-left: 5px solid var(--editor-border);
+}
+
+.log--default {
+    color: #000;
+}
+
+.log--string {
+    color: #48BF0A;
+}
+
+.log--number {
+    color: #48BF0A;
+}
+
+.log--boolean {
+    color: blue;
+}
+
+.log--undefined {
+    color: grey;
+}
+
+.log--error {
+    color: red;
+}
+
+.log--object {
+    color: darkcyan;
+}
+
+.log--array {
+    color: darkblue;
+}
+
+.log--function {
+    color: yellow;
+}
+
+#js-btn{
+    height: 4.5vh;
+    top: 1vw;
+    position:absolute ;
+    top: 1.4vw;
+    left: 20vw;
+    width: 12vw;
+    position: absolute;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+#js-btn a{
+    text-decoration: none;
+    font-size: 1.5vw;
+    color: black;
+    font-family: auto;
+    
+}
+#dropdown{
+    box-shadow: 2px 4px 5px 2px rgba(0,0,0,0.2);
+    width:11vw;
+    background-color: #00abae;
+    color:white;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 0.9vw;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+    text-align: center;
+    box-sizing: border-box;
+    border:none;
+    padding: 0.4em;
+}
+
+#dropdown ul{
+    position:absolute;
+    top:0vw;
+    left:28vw;
+    z-index: 1;
+    width:7vw;
+}
+
+#dropdown:hover{
+    cursor: pointer;
+    background-color: white;
+    color: #00abae;
+}
+
+#language-list{
+    display:none;
+    margin-top:1vw;
+    margin-left: 1vw;
+    background-color: #00abae;
+    width:8vw;
+    padding:1vw;
+    border-radius: 0.5vw;
+}
+#language-list li{
+    list-style: none;
+    margin:0.5vw 0vw;
+}
+#language-list li a:hover{
+    color:black;
+}
+#language-list li a{
+    text-decoration: none;
+    color:white;
+}
+#lang-title{
+    font-size:1.5em;
+}
+#techis-logo{
+    width:3vw;
+}
+#navigate{
+    width:30vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#html-editor{
+    width:100%;
+    height:50vh;
+    border-radius: 5px;
+    border: 1px solid #00abae;
+}
+#css-editor{
+    width: 100%;
+    height: 50vh;
+    border-radius: 5px;
+    border: 1px solid #00abae;
+}
+#main-section{
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(49, 43, 43);
+}
+#output{
+    width:97%;
+    margin: 0.5vw auto;
+    height: 50vh;
+    background-color: white !important;
+    border-radius: 5px;
+    border: 1px solid #00abae;
+}
+#html-div{
+    width:47vw;
+    margin: 0.5vw auto;
+}
+#css-div{
+    width:47vw;
+    margin: 0.5vw auto;
+}
+#html-css-editor{
+    display:flex;
+}
+#html-css-editor textarea::placeholder{
+    padding: 10px;
+}
+#tech-heading{
+    font-family: Arial, Helvetica, sans-serif;;
+    color: rgb(49, 43, 43);
+    font-size: 2vw;
+    font-weight: lighter;
+}
+#heading-logo{
+    display:flex;
+    align-items: center;
+}
